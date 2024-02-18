@@ -1,0 +1,15 @@
+{
+  "name": "generate-tests",
+  "version": "1.0.0",
+  "description": "Create unit test files for files that do not have unit tests.",
+  "bin": "index.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Carolina Oliveira",
+  "license": "ISC",
+  "dependencies": {
+    "node-fetch": "^2.7.0"
+  }
+}
