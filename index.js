@@ -1,18 +1,21 @@
 #!/usr/bin/env node
 
-// https://dev.to/matheusg18/como-criar-um-npx-2il4
+const fs = require('fs')
+const path = require('path')
 
-console.log('Meu primeiro npx!')
+function listRootDirectory() {
+  const rootDir = path.resolve(__dirname, '.')
 
-const fetch = require('node-fetch')
-
-const getRandomFact = async () => {
-  const ENDPOINT = 'https://uselessfacts.jsph.pl/random.json?language=en'
-  const randomFact = await fetch(ENDPOINT).then((response) => response.json())
-
-  return randomFact.text
+  fs.readdir(rootDir, (error, files) => {
+    if (error) {
+      console.error('Error reading directory', error)
+    } else {
+      console.log('Files and directories in the root directory:')
+      files.forEach((file) => {
+        console.log(file)
+      })
+    }
+  })
 }
 
-getRandomFact().then((randomFact) => console.log(randomFact))
-
-// Próximo passo: print da pasta root
+listRootDirectory();
